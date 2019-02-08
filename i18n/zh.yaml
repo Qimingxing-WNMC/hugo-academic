@@ -83,7 +83,7 @@
 # Publications widget
 
 - id: more_publications
-  translation: 更多出版物
+  translation: 更多出版作品
 
 # Posts widget
 
@@ -91,12 +91,12 @@
   translation: 继续阅读
 
 - id: more_posts
-  translation: 更多文章
+  translation: 更多博客文章
 
 # Talks widget
 
 - id: more_talks
-  translation: 更多演讲
+  translation: 更多演讲分享
 
 # Contact widget
 
@@ -118,7 +118,7 @@
   translation: 摘要
 
 - id: publication
-  translation: 出版物
+  translation: 出版作品
 
 - id: publication_type
   translation: 类型
@@ -151,16 +151,16 @@
 # Default node titles
 
 - id: posts
-  translation: 文章
+  translation: 技术博客
 
 - id: publications
-  translation: 出版物
+  translation: 出版作品
 
 - id: talks
-  translation: 演讲
+  translation: 演讲分享
 
 - id: projects
-  translation: 项目
+  translation: 开源项目
 
 # Search
 
@@ -191,3 +191,21 @@
 
 - id: cookie_learn
   translation: 了解更多
+
+# publication types
+
+- id: pub_uncat
+  translation: 未分组
+- id: pub_conf
+  translation: 会议记录
+- id: pub_journal
+  translation: 期刊文章
+- id: pub_manuscript
+  translation: 手稿
+- id: pub_report
+  translation: 技术报告
+- id: pub_book
+  translation: 书籍
+- id: pub_book_section
+  translation: 书籍摘抄
+
