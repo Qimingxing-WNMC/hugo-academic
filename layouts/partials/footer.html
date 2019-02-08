@@ -127,7 +127,7 @@
     </script>
     {{ end }}
 
-    {{ $js_comment := printf "/* Source Themes Academic v%s | https://sourcethemes.com/academic/ */\n" .Site.Data.academic.version }}
+    {{ $js_comment := printf "/* Source Themes Academic v%s | /local/sourcethemes.com/academic/ */\n" .Site.Data.academic.version }}
     {{ $js_bundle_head := $js_comment | resources.FromString "js/bundle-head.js" }}
     {{ $js_academic := resources.Get "js/academic.js" }}
     {{ $js_academic_search := resources.Get "js/academic-search.js" }}
