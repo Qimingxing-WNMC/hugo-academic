@@ -1,15 +1,22 @@
 <div class="card-simple" itemscope itemtype="http://schema.org/Event">
 
-  {{ $resource := (.Resources.ByType "image").GetMatch "*featured*" }}
-  {{ $anchor := .Params.image.focal_point | default "Smart" }}
-  {{ with $resource }}
-  {{ $image := .Fill (printf "918x517 q90 %s" $anchor) }}
+  {{ if .Params.image_preview }}
+    {{ .Scratch.Set "image" .Params.image_preview }}
+  {{ else if .Params.header.image }}
+    {{ .Scratch.Set "image" .Params.header.image }}
+  {{ end }}
+  {{ if .Scratch.Get "image" }}
   <div>
-    <a href="{{ $.RelPermalink }}">
-      <img src="{{ $image.RelPermalink }}" class="article-banner" itemprop="image" alt="">
+    <a href="{{ .RelPermalink }}">
+      {{ $img_src := urls.Parse (.Scratch.Get "image") }}
+      {{ if $img_src.Scheme }}
+        <img src="{{ .Scratch.Get "image" }}" class="article-banner" itemprop="image">
+      {{ else }}
+        <img src="{{ "/img/" | relURL }}{{ .Scratch.Get "image" }}" class="article-banner" itemprop="image">
+      {{ end }}
     </a>
   </div>
-  {{end}}
+  {{ end }}
 
   <h3 class="article-title" itemprop="name">
     <a href="{{ .RelPermalink }}" itemprop="url">{{ .Title }}</a>
@@ -17,13 +24,7 @@
 
   <div class="talk-metadata" itemprop="startDate">
     {{ $date := .Params.time_start | default .Date }}
-    {{ (time $date).Format $.Site.Params.date_format }}
-    {{ if not .Params.all_day }}
-      {{ (time $date).Format ($.Site.Params.time_format | default "3:04 PM") }}
-      {{ with .Params.time_end }}
-        &mdash; {{ (time .).Format ($.Site.Params.time_format | default "3:04 PM") }}
-      {{ end }}
-    {{ end }}
+    {{ (time $date).Format $.Site.Params.date_format }} @ {{ .Params.publication }}
   </div>
 
   <div class="talk-metadata">

@@ -88,7 +88,7 @@
 # Posts widget
 
 - id: continue_reading
-  translation: 继续阅读
+  translation: 阅读全文
 
 - id: more_posts
   translation: 更多博客文章
